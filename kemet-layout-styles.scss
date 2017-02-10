@@ -1,25 +1,96 @@
 @import "kemet-layout-config";
 @import "kemet-layout-helpers";
 
-[layout="flex-row"] {
-    display: flex;
-}
-
-[layout="flex-row"] > * {
+%flexitem {
     flex: 1;
     display: block;
     box-sizing: border-box;
     word-wrap: break-word;
 }
 
-@include makeBreakpoints();
-@include makeGutters();
+// row layout
+// ----------
 
-[autostack] {
+[layout="flex-row"] {
+    display: flex;
+}
+
+[layout="flex-row"] > * {
+    @extend %flexitem;
+}
+
+// flex-items (force them to stretch)
+[layout*="flex-row"][flex-items] > * {
+    display: flex;
+}
+
+// autostack
+[layout*="flex-row"][autostack] {
     flex-direction: column;
 }
+
+[layout*="flex-row"][autostack][align] > * {
+    align-self: initial;
+}
+
 @media screen and (min-width: $stackpoint) {
-    [autostack] {
+    [layout*="flex-row"][autostack] {
         flex-direction: row;
     }
 }
+
+// align
+[layout*="flex-row"][align="start"] {
+     align-items: flex-start;
+}
+
+[layout*="flex-row"][align="center"] {
+    align-items: center;
+}
+
+[layout*="flex-row"][align="stretch"] {
+    align-items: stretch;
+}
+
+[layout*="flex-row"][align="end"] {
+    align-items: flex-end;
+}
+
+[layout*="flex-row"] > [align-item="start"] {
+    align-self: flex-start;
+}
+
+[layout*="flex-row"] > [align-item="center"] {
+     align-self: center;
+}
+
+[layout*="flex-row"] > [align-item="stretch"] {
+    align-self: stretch;
+}
+
+[layout*="flex-row"] > [align-item="end"] {
+    align-self: flex-end;
+}
+
+
+// flex-row-wrap
+// -------------
+
+[layout="flex-row-wrap"] {
+    display: flex;
+}
+
+[layout="flex-row-wrap"] > * {
+    @extend %flexitem;
+    flex-wrap: wrap;
+}
+
+
+
+// special attributes
+// ------------------
+
+@include makeBreakpoints();
+@include makeGutters();
+@include makeOrder();
+@include makeVisibility();
