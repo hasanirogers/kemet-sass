@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>kemet-layout demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../kemet-layout.html">
+    <link rel="import" href="../kemet-layout-styles.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles"></style>
+    <style is="custom-style" include="kemet-layout-styles"></style>
+    <style>
+      /* styles for demoing the layout */
+      .box {
+        width: 100%;
+        padding: 0.5rem;
+        box-sizing: border-box;
+        display: inline-block;
+        background-color: rgba(0,0,0,0.25);
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="vertical-section-container">
+      <h3>Basic kemet-layout demo</h3>
+      <demo-snippet>
+        <template>
+          <div layout="flex-row" gutter autostack>
+              <div><span class="box">Item 1</span></div>
+              <div><span class="box">Item 2</span></div>
+              <div><span class="box">Item 3</span></div>
+              <div><span class="box">Item 4</span></div>
+          </div>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <div layout="flex-row" gutters="plus-6">
+              <div breakpoint="medium-33"><span class="box">Item 1</span></div>
+              <div><span class="box">Item 2</span></div>
+              <div><span class="box">Item 3</span></div>
+              <div><span class="box">Item 4</span></div>
+          </div>
+        </template>
+      </demo-snippet>
+
+    </div>
+  </body>
+</html>

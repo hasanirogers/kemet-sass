@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts" : {
+    "sass-dev" : "node-sass ./kemet-layout-styles.scss --output ./"
+  },
+  "devDependencies": {
+    "fs": "^0.0.2",
+    "gulp": "^3.9.1",
+    "map-stream": "0.0.6",
+    "node-sass": "^3.7.0",
+    "path": "^0.12.7"
+  }
+}

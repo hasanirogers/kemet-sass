@@ -1,0 +1,53 @@
+# you must install the appropirate package/plugin for your editor: http://editorconfig.org/#download
+
+# top-most config file
+root = true
+
+# defaults
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+#https://www.sublimetext.com/forum/viewtopic.php?f=3&t=12118
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.txt]
+insert_final_newline = false
+trim_trailing_whitespace = false
+
+
+
+# 2 spaces file extention exceptions
+[*.{xml,json,svg}]
+indent_size = 2
+
+
+
+
+##############
+#   Elixir   #
+##############
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.js]
+indent_style = space
+indent_size = 4
+
+[*.java]
+indent_style = tab
+indent_size = 4
+
+[*{.jsp,.html,.json,.xml}]
+indent_style = space
+indent_size = 2
+
+[*.yml]
+indent_size = 2
+
+[*{.css,.scss}]
+indent_style = space
+indent_size = 4

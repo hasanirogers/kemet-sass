@@ -1,0 +1,25 @@
+@import "kemet-layout-config";
+@import "kemet-layout-helpers";
+
+[layout="flex-row"] {
+    display: flex;
+}
+
+[layout="flex-row"] > * {
+    flex: 1;
+    display: block;
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+@include makeBreakpoints();
+@include makeGutters();
+
+[autostack] {
+    flex-direction: column;
+}
+@media screen and (min-width: $stackpoint) {
+    [autostack] {
+        flex-direction: row;
+    }
+}
