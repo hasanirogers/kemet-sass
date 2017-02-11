@@ -98,11 +98,11 @@
 
 [layout="flex-row-wrap"] {
     display: flex;
+    flex-wrap: wrap;
 }
 
 [layout="flex-row-wrap"] > * {
     @extend %flexitem;
-    flex-wrap: wrap;
 }
 
 

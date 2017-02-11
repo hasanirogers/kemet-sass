@@ -14,18 +14,28 @@
 
         @media screen and (min-width: #{$pixel}) {
 
+            [breakpoint*="#{$breakpoint}-25"] {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+
             [breakpoint*="#{$breakpoint}-33"] {
-                flex: 0 0 33%;
-                max-width: 33%;
+                flex: 0 0 33.33%;
+                max-width: 33.33%;
             }
 
             [breakpoint*="#{$breakpoint}-66"] {
-                flex: 0 0 66%;
-                max-width: 66%;
+                flex: 0 0 66.66%;
+                max-width: 66.66%;
             }
 
             [breakpoint*="#{$breakpoint}-content"] {
                 flex: 0 0 auto;
+            }
+
+            [breakpoint*="#{$breakpoint}-75"] {
+                flex: 0 0 75%;
+                max-width: 75%;
             }
 
             // if "ten" "five" or "twenty"
@@ -49,13 +59,33 @@
 @mixin makeGutters() {
 
     @each $attsvalue, $value in $gutters {
-        // TODO if $attsvalue == 0 [gutter]
-        [gutters="#{$attsvalue}"] {
-            margin-left: -($value);
+
+        $gutterselector: '[gutters="#{$attsvalue}"]';
+
+        @if $attsvalue == zero {
+            $gutterselector: '[gutter]';
         }
 
-        [gutters="#{$attsvalue}"] > * {
-            padding-left: $value;
+         @debug  $gutterselector;
+
+        // TODO if $attsvalue == 0 [gutter]
+
+        #{$gutterselector} {
+            margin-right: -($value);
+        }
+
+        #{$gutterselector} > * {
+            padding-right: $value;
+        }
+
+        [layout="flex-row-wrap"]#{$gutterselector} > * {
+            margin-bottom: $value;
+        }
+
+        @media only screen and (max-width: $stackpoint) {
+            [layout="flex-row"]#{$gutterselector}[autostack] > * {
+                margin-bottom: $value;
+            }
         }
 
     }

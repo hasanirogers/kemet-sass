@@ -17,12 +17,16 @@
     <style is="custom-style" include="kemet-layout-styles"></style>
     <style>
       /* styles for demoing the layout */
+      body {
+        overflow-x: hidden;
+      }
       .box {
         width: 100%;
         padding: 0.5rem;
         box-sizing: border-box;
         display: inline-block;
-        background-color: rgba(0,0,0,0.25);
+        border: 1px solid rgba(0,0,255,0.1);
+        background-color: rgba(0,0,255,0.05);
       }
     </style>
 
@@ -86,6 +90,27 @@
           <div layout="flex-row" align-content="between">
               <div breakpoint="tiny-66"><span class="box">Left</span></div>
               <div breakpoint="tiny-content"><span class="box">Right</span></div>
+          </div>
+        </template>
+      </demo-snippet>
+
+      <hr />
+
+      <demo-snippet>
+        <template>
+          <div layout="flex-row-wrap" gutters="plus-1">
+              <div breakpoint="tiny-100 medium-33 large-25">
+                <span class="box">1</span>
+              </div>
+              <div breakpoint="tiny-50 medium-33 large-25">
+                <span class="box">2</span>
+              </div>
+              <div breakpoint="tiny-50 medium-33 large-25">
+                <span class="box">3</span>
+              </div>
+              <div breakpoint="tiny-100 medium-100 large-25">
+                <span class="box">4</span>
+              </div>
           </div>
         </template>
       </demo-snippet>
