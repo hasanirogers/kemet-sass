@@ -52,6 +52,44 @@
         </template>
       </demo-snippet>
 
+      <demo-snippet>
+        <template>
+          <div layout="flex-row" flex-items gutters="plus-1" >
+              <div breakpoint="tiny-content"><span class="box">[icon]</span></div>
+              <div><span class="box">Item 2</span></div>
+              <div><span class="box">Item 3</span></div>
+              <div breakpoint="tiny-50"><span class="box">Item 4</span></div>
+          </div>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <div layout="flex-row" gutters="plus-1" align="middle" style="height: 64px;">
+              <div align-item="bottom">
+                <span class="box">Item 1</span>
+              </div>
+              <div><span class="box">Item 2</span></div>
+              <div align-item="top">
+                <span class="box">Item 3</span>
+              </div>
+              <div><span class="box">Item 4</span></div>
+              <div align-item="bottom">
+                <span class="box">Item 5</span>
+              </div>
+          </div>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <div layout="flex-row" align-content="between">
+              <div breakpoint="tiny-66"><span class="box">Left</span></div>
+              <div breakpoint="tiny-content"><span class="box">Right</span></div>
+          </div>
+        </template>
+      </demo-snippet>
+
     </div>
   </body>
 </html>

@@ -24,8 +24,19 @@
                 max-width: 66%;
             }
 
-            [breakpoint*="#{$breakpoint}-auto"] {
+            [breakpoint*="#{$breakpoint}-content"] {
                 flex: 0 0 auto;
+            }
+
+            // if "ten" "five" or "twenty"
+            // through 10 x $i*10 must equal 100
+            @for $i from 1 through 10 {
+                $size: $i*10;
+                $percent: $size + '%';
+                [breakpoint*="#{$breakpoint}-#{$size}"] {
+                    flex: 0 0 unquote($percent);
+                    max-width: unquote($percent);
+                }
             }
 
         } // media query

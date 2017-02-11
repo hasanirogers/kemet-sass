@@ -20,28 +20,43 @@
   [layout*="flex-row"][autostack] {
     flex-direction: row; } }
 
-[layout*="flex-row"][align="start"] {
+[layout*="flex-row"][align="top"] {
   align-items: flex-start; }
 
-[layout*="flex-row"][align="center"] {
+[layout*="flex-row"][align="middle"] {
   align-items: center; }
 
 [layout*="flex-row"][align="stretch"] {
   align-items: stretch; }
 
-[layout*="flex-row"][align="end"] {
+[layout*="flex-row"][align="bottom"] {
   align-items: flex-end; }
 
-[layout*="flex-row"] > [align-item="start"] {
+[layout*="flex-row"][align-content="left"] {
+  justify-content: left; }
+
+[layout*="flex-row"][align-content="right"] {
+  justify-content: right; }
+
+[layout*="flex-row"][align-content="center"] {
+  justify-content: center; }
+
+[layout*="flex-row"][align-content="between"] {
+  justify-content: space-between; }
+
+[layout*="flex-row"][align-content="around"] {
+  justify-content: space-around; }
+
+[layout*="flex-row"] > [align-item="top"] {
   align-self: flex-start; }
 
-[layout*="flex-row"] > [align-item="center"] {
+[layout*="flex-row"] > [align-item="middle"] {
   align-self: center; }
 
 [layout*="flex-row"] > [align-item="stretch"] {
   align-self: stretch; }
 
-[layout*="flex-row"] > [align-item="end"] {
+[layout*="flex-row"] > [align-item="bottom"] {
   align-self: flex-end; }
 
 [layout="flex-row-wrap"] {
@@ -57,8 +72,38 @@
   [breakpoint*="tiny-66"] {
     flex: 0 0 66%;
     max-width: 66%; }
-  [breakpoint*="tiny-auto"] {
-    flex: 0 0 auto; } }
+  [breakpoint*="tiny-content"] {
+    flex: 0 0 auto; }
+  [breakpoint*="tiny-10"] {
+    flex: 0 0 10%;
+    max-width: 10%; }
+  [breakpoint*="tiny-20"] {
+    flex: 0 0 20%;
+    max-width: 20%; }
+  [breakpoint*="tiny-30"] {
+    flex: 0 0 30%;
+    max-width: 30%; }
+  [breakpoint*="tiny-40"] {
+    flex: 0 0 40%;
+    max-width: 40%; }
+  [breakpoint*="tiny-50"] {
+    flex: 0 0 50%;
+    max-width: 50%; }
+  [breakpoint*="tiny-60"] {
+    flex: 0 0 60%;
+    max-width: 60%; }
+  [breakpoint*="tiny-70"] {
+    flex: 0 0 70%;
+    max-width: 70%; }
+  [breakpoint*="tiny-80"] {
+    flex: 0 0 80%;
+    max-width: 80%; }
+  [breakpoint*="tiny-90"] {
+    flex: 0 0 90%;
+    max-width: 90%; }
+  [breakpoint*="tiny-100"] {
+    flex: 0 0 100%;
+    max-width: 100%; } }
 
 @media screen and (min-width: 640px) {
   [breakpoint*="small-33"] {
@@ -67,8 +112,38 @@
   [breakpoint*="small-66"] {
     flex: 0 0 66%;
     max-width: 66%; }
-  [breakpoint*="small-auto"] {
-    flex: 0 0 auto; } }
+  [breakpoint*="small-content"] {
+    flex: 0 0 auto; }
+  [breakpoint*="small-10"] {
+    flex: 0 0 10%;
+    max-width: 10%; }
+  [breakpoint*="small-20"] {
+    flex: 0 0 20%;
+    max-width: 20%; }
+  [breakpoint*="small-30"] {
+    flex: 0 0 30%;
+    max-width: 30%; }
+  [breakpoint*="small-40"] {
+    flex: 0 0 40%;
+    max-width: 40%; }
+  [breakpoint*="small-50"] {
+    flex: 0 0 50%;
+    max-width: 50%; }
+  [breakpoint*="small-60"] {
+    flex: 0 0 60%;
+    max-width: 60%; }
+  [breakpoint*="small-70"] {
+    flex: 0 0 70%;
+    max-width: 70%; }
+  [breakpoint*="small-80"] {
+    flex: 0 0 80%;
+    max-width: 80%; }
+  [breakpoint*="small-90"] {
+    flex: 0 0 90%;
+    max-width: 90%; }
+  [breakpoint*="small-100"] {
+    flex: 0 0 100%;
+    max-width: 100%; } }
 
 @media screen and (min-width: 1024px) {
   [breakpoint*="medium-33"] {
@@ -77,8 +152,38 @@
   [breakpoint*="medium-66"] {
     flex: 0 0 66%;
     max-width: 66%; }
-  [breakpoint*="medium-auto"] {
-    flex: 0 0 auto; } }
+  [breakpoint*="medium-content"] {
+    flex: 0 0 auto; }
+  [breakpoint*="medium-10"] {
+    flex: 0 0 10%;
+    max-width: 10%; }
+  [breakpoint*="medium-20"] {
+    flex: 0 0 20%;
+    max-width: 20%; }
+  [breakpoint*="medium-30"] {
+    flex: 0 0 30%;
+    max-width: 30%; }
+  [breakpoint*="medium-40"] {
+    flex: 0 0 40%;
+    max-width: 40%; }
+  [breakpoint*="medium-50"] {
+    flex: 0 0 50%;
+    max-width: 50%; }
+  [breakpoint*="medium-60"] {
+    flex: 0 0 60%;
+    max-width: 60%; }
+  [breakpoint*="medium-70"] {
+    flex: 0 0 70%;
+    max-width: 70%; }
+  [breakpoint*="medium-80"] {
+    flex: 0 0 80%;
+    max-width: 80%; }
+  [breakpoint*="medium-90"] {
+    flex: 0 0 90%;
+    max-width: 90%; }
+  [breakpoint*="medium-100"] {
+    flex: 0 0 100%;
+    max-width: 100%; } }
 
 @media screen and (min-width: 1440px) {
   [breakpoint*="large-33"] {
@@ -87,8 +192,38 @@
   [breakpoint*="large-66"] {
     flex: 0 0 66%;
     max-width: 66%; }
-  [breakpoint*="large-auto"] {
-    flex: 0 0 auto; } }
+  [breakpoint*="large-content"] {
+    flex: 0 0 auto; }
+  [breakpoint*="large-10"] {
+    flex: 0 0 10%;
+    max-width: 10%; }
+  [breakpoint*="large-20"] {
+    flex: 0 0 20%;
+    max-width: 20%; }
+  [breakpoint*="large-30"] {
+    flex: 0 0 30%;
+    max-width: 30%; }
+  [breakpoint*="large-40"] {
+    flex: 0 0 40%;
+    max-width: 40%; }
+  [breakpoint*="large-50"] {
+    flex: 0 0 50%;
+    max-width: 50%; }
+  [breakpoint*="large-60"] {
+    flex: 0 0 60%;
+    max-width: 60%; }
+  [breakpoint*="large-70"] {
+    flex: 0 0 70%;
+    max-width: 70%; }
+  [breakpoint*="large-80"] {
+    flex: 0 0 80%;
+    max-width: 80%; }
+  [breakpoint*="large-90"] {
+    flex: 0 0 90%;
+    max-width: 90%; }
+  [breakpoint*="large-100"] {
+    flex: 0 0 100%;
+    max-width: 100%; } }
 
 @media screen and (min-width: 1920px) {
   [breakpoint*="huge-33"] {
@@ -97,8 +232,38 @@
   [breakpoint*="huge-66"] {
     flex: 0 0 66%;
     max-width: 66%; }
-  [breakpoint*="huge-auto"] {
-    flex: 0 0 auto; } }
+  [breakpoint*="huge-content"] {
+    flex: 0 0 auto; }
+  [breakpoint*="huge-10"] {
+    flex: 0 0 10%;
+    max-width: 10%; }
+  [breakpoint*="huge-20"] {
+    flex: 0 0 20%;
+    max-width: 20%; }
+  [breakpoint*="huge-30"] {
+    flex: 0 0 30%;
+    max-width: 30%; }
+  [breakpoint*="huge-40"] {
+    flex: 0 0 40%;
+    max-width: 40%; }
+  [breakpoint*="huge-50"] {
+    flex: 0 0 50%;
+    max-width: 50%; }
+  [breakpoint*="huge-60"] {
+    flex: 0 0 60%;
+    max-width: 60%; }
+  [breakpoint*="huge-70"] {
+    flex: 0 0 70%;
+    max-width: 70%; }
+  [breakpoint*="huge-80"] {
+    flex: 0 0 80%;
+    max-width: 80%; }
+  [breakpoint*="huge-90"] {
+    flex: 0 0 90%;
+    max-width: 90%; }
+  [breakpoint*="huge-100"] {
+    flex: 0 0 100%;
+    max-width: 100%; } }
 
 [gutters="minus-3"] {
   margin-left: -0.5rem; }
