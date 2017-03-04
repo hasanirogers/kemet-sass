@@ -12,7 +12,7 @@ $gutters: (
     plus-6: 3rem,
 );
 
-$stackpoint: 767px;
+$stackpoint: 640px;
 
 $breakpoints: (
     tiny: 320px,
@@ -32,5 +32,4 @@ $breakranges: (
 
 $order: 5;
 
-
-// breakpoint multiples of 5 or 10
+$flexgridcolumns: 12;

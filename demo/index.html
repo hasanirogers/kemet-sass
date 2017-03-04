@@ -22,6 +22,7 @@
       }
       .box {
         width: 100%;
+        height: 100%;
         padding: 0.5rem;
         box-sizing: border-box;
         display: inline-block;
@@ -33,87 +34,218 @@
   </head>
   <body>
     <div class="vertical-section-container">
-      <h3>Basic kemet-layout demo</h3>
-      <demo-snippet>
-        <template>
-          <div layout="flex-row" gutter autostack>
-              <div><span class="box">Item 1</span></div>
-              <div><span class="box">Item 2</span></div>
-              <div><span class="box">Item 3</span></div>
-              <div><span class="box">Item 4</span></div>
-          </div>
-        </template>
-      </demo-snippet>
-
-      <demo-snippet>
-        <template>
-          <div layout="flex-row" gutters="plus-6">
-              <div breakpoint="medium-33"><span class="box">Item 1</span></div>
-              <div><span class="box">Item 2</span></div>
-              <div><span class="box">Item 3</span></div>
-              <div><span class="box">Item 4</span></div>
-          </div>
-        </template>
-      </demo-snippet>
-
-      <demo-snippet>
-        <template>
-          <div layout="flex-row" flex-items gutters="plus-1" >
-              <div breakpoint="tiny-content"><span class="box">[icon]</span></div>
-              <div><span class="box">Item 2</span></div>
-              <div><span class="box">Item 3</span></div>
-              <div breakpoint="tiny-50"><span class="box">Item 4</span></div>
-          </div>
-        </template>
-      </demo-snippet>
-
-      <demo-snippet>
-        <template>
-          <div layout="flex-row" gutters="plus-1" align="middle" style="height: 64px;">
-              <div align-item="bottom">
-                <span class="box">Item 1</span>
-              </div>
-              <div><span class="box">Item 2</span></div>
-              <div align-item="top">
-                <span class="box">Item 3</span>
-              </div>
-              <div><span class="box">Item 4</span></div>
-              <div align-item="bottom">
-                <span class="box">Item 5</span>
-              </div>
-          </div>
-        </template>
-      </demo-snippet>
-
-      <demo-snippet>
-        <template>
-          <div layout="flex-row" align-content="between">
-              <div breakpoint="tiny-66"><span class="box">Left</span></div>
-              <div breakpoint="tiny-content"><span class="box">Right</span></div>
-          </div>
-        </template>
-      </demo-snippet>
-
+      <h3>Flexrow</h3>
       <hr />
 
-      <demo-snippet>
-        <template>
-          <div layout="flex-row-wrap" gutters="plus-1">
-              <div breakpoint="tiny-100 medium-33 large-25">
-                <span class="box">1</span>
-              </div>
-              <div breakpoint="tiny-50 medium-33 large-25">
-                <span class="box">2</span>
-              </div>
-              <div breakpoint="tiny-50 medium-33 large-25">
-                <span class="box">3</span>
-              </div>
-              <div breakpoint="tiny-100 medium-100 large-25">
-                <span class="box">4</span>
-              </div>
-          </div>
-        </template>
-      </demo-snippet>
+      <figure>
+        <figcaption>
+          <p>The most basic usage of flexrow. Every direct descendent of flexrow will equally distribute space.</p>
+        </figcaption>
+        <demo-snippet>
+          <template>
+            <div layout="flexrow">
+                <div><span class="box">Item 1</span></div>
+                <div><span class="box">Item 2</span></div>
+                <div><span class="box">Item 3</span></div>
+                <div><span class="box">Item 4</span></div>
+            </div>
+          </template>
+        </demo-snippet>
+      </figure>
+
+      <figure>
+        <figcaption>
+          <p>Add <code>autostack</code> to flexrow to force the items to stack to a mobile layout at the configured breakpoint. Add <code>gutters</code> to flexrow to put gutter spacing between items.</p>
+        </figcaption>
+        <demo-snippet>
+          <template>
+            <div layout="flexrow" autostack gutters>
+                <div><span class="box">Item 1</span></div>
+                <div><span class="box">Item 2</span></div>
+                <div><span class="box">Item 3</span></div>
+                <div><span class="box">Item 4</span></div>
+            </div>
+          </template>
+        </demo-snippet>
+      </figure>
+
+      <figure>
+        <figcaption>
+          <p>You can add <code>plus-n</code> or <code>minus-n</code> to gutters where <em>n</em> is a configured multiple of default spacing. Use this to control the amount of spacing for the gutters.</p>
+        </figcaption>
+        <demo-snippet>
+          <template>
+            <div layout="flexrow" gutters="plus-6">
+                <div breakpoint="medium-33"><span class="box">Item 1</span></div>
+                <div><span class="box">Item 2</span></div>
+                <div><span class="box">Item 3</span></div>
+                <div><span class="box">Item 4</span></div>
+            </div>
+          </template>
+        </demo-snippet>
+      </figure>
+
+      <figure>
+        <figcaption>
+          <p>You can control the size items at each breakpoint with <code>breakpoint</code>. The syntax is <em>breakpoint-size</em>. <code>-content</code> means fit item's content. All other sizes are numerical multiples of 5 (5-100) and also <code>-33</code> and <code>-66</code>. You only need to add breakpoints to items that you want to size. Items without breakpoints will equally distribute.</p>
+        </figcaption>
+        <demo-snippet>
+          <template>
+            <div layout="flexrow" flex-items gutters="minus-1" >
+                <div breakpoint="tiny-content">
+                  <span class="box">
+                    <iron-icon icon="icons:polymer"></iron-icon>
+                  </span>
+                </div>
+                <div><span class="box">Item 2</span></div>
+                <div><span class="box">Item 3</span></div>
+                <div breakpoint="tiny-50"><span class="box">Item 4</span></div>
+            </div>
+          </template>
+        </demo-snippet>
+      </figure>
+
+      <figure>
+        <figcaption>
+          <p>You can align all items by using <code>align</code> on your container or a specific item by using <code>align</code> on your item. Values are <code>top</code>, <code>middle</code>, <code>bottom</code>, <code>stretch</code>.</p>
+        </figcaption>
+        <demo-snippet>
+          <template>
+            <div layout="flexrow" gutters="plus-1" align="middle" style="height: 64px;">
+                <div align="bottom">
+                  <span class="box">Item 1</span>
+                </div>
+                <div><span class="box">Item 2</span></div>
+                <div align="top">
+                  <span class="box">Item 3</span>
+                </div>
+                <div><span class="box">Item 4</span></div>
+                <div align="bottom">
+                  <span class="box">Item 5</span>
+                </div>
+            </div>
+          </template>
+        </demo-snippet>
+      </figure>
+
+      <figure>
+        <figcaption>
+          <p>You can align acrosss the x-axis with <code>cross-align</code>. Cross align can only be used on a container and effects all items. Values include <code>left</code>, <code>right</code>, <code>center</code>, <code>between</code>, and <code>around</code>.</p>
+        </figcaption>
+        <demo-snippet>
+          <template>
+            <div layout="flexrow" cross-align="between">
+                <div breakpoint="tiny-66"><span class="box">Left</span></div>
+                <div breakpoint="tiny-content"><span class="box">Right</span></div>
+            </div>
+          </template>
+        </demo-snippet>
+      </figure>
+
+      <hr /><br />
+
+      <h3>Flexgrid</h3>
+
+      <figure>
+        <figcaption>
+          <p>Flexgrid allows you to size a list of flex items to achieve effects similar to a grid. Use <code>breakpoint</code> on each item to size them.</p>
+        <figcaption>
+        <demo-snippet>
+          <template>
+            <div layout="flexgrid" gutters="plus-1">
+                <div breakpoint="tiny-100 medium-33 large-25">
+                  <span class="box">1</span>
+                </div>
+                <div breakpoint="tiny-50 medium-33 large-25">
+                  <span class="box">2</span>
+                </div>
+                <div breakpoint="tiny-50 medium-33 large-25">
+                  <span class="box">3</span>
+                </div>
+                <div breakpoint="tiny-100 medium-100 large-25">
+                  <span class="box">4</span>
+                </div>
+            </div>
+          </template>
+        </demo-snippet>
+      </figure>
+
+      <figure>
+        <figcaption>
+          <p>Use <code>basis</code> on large flexgrids where you want specific columns and don't need individual control over items. You can change the columns at their respective breakpoints.</p>
+        </figcaption>
+        <demo-snippet>
+          <template>
+            <div layout="flexgrid" gutters basis="tiny-5-columns">
+              <div><span class="box">1</span></div>
+              <div><span class="box">2</span></div>
+              <div><span class="box">3</span></div>
+              <div><span class="box">4</span></div>
+              <div><span class="box">5</span></div>
+              <div><span class="box">6</span></div>
+              <div><span class="box">7</span></div>
+              <div><span class="box">8</span></div>
+              <div><span class="box">9</span></div>
+              <div><span class="box">10</span></div>
+            </div>
+          </template>
+        </demo-snippet>
+      </figure>
+
+      <hr><br />
+
+      <h3>Flexcolumn</h3>
+      <figure>
+        <figcaption>
+          <p>A <code>flexcolumn</code> will automatically space each item's height in its container.</p>
+        </figcaption>
+        <demo-snippet>
+          <template>
+            <div layout="flexcolumn" gutters style="height:300px;">
+              <div><span class="box">1</span></div>
+              <div><span class="box">2</span></div>
+              <div><span class="box">3</span></div>
+            </div>
+          </template>
+        </demo-snippet>
+      </figure>
+
+      <figure>
+        <figcaption>
+          <p>Use<code>size-content</code> on an item to size its height the content of the item.</p>
+        </figcaption>
+        <demo-snippet>
+          <template>
+            <div layout="flexcolumn" gutters style="height:300px;">
+              <div size-content><span class="box">1</span></div>
+              <div><span class="box">2</span></div>
+              <div><span class="box">3</span></div>
+            </div>
+          </template>
+        </demo-snippet>
+      </figure>
+
+      <hr /><br />
+
+      <h3>Flexlist</h3>
+      <figure>
+        <figcaption>
+          <p>Use a flexlist to take advantage of ordering and alignment while having a presentation that looks like a list.</p>
+        </figcaption>
+        <demo-snippet>
+          <template>
+            <div layout="flexlist" gutters>
+              <div><span class="box">One</span></div>
+              <div><span class="box">Two</span></div>
+              <div><span class="box">Three</span></div>
+              <div><span class="box">Four</span></div>
+              <div><span class="box">Five</span></div>
+              <div><span class="box">Six</span></div>
+            </div>
+          </template>
+        </demo-snippet>
+      </figure>
+
 
     </div>
   </body>

@@ -4,7 +4,8 @@ const fs = require('fs'),
       path = require('path'),
       gulp = require('gulp'),
       libsass = require('node-sass'),
-      mapStream = require('map-stream');
+      mapStream = require('map-stream'),
+      exec = require('child_process').exec;
 
 //This is currently not used. But you can enable by uncommenting
 // " //return gulp.src([basePath+ext,...excludeDirs])" above the return.
@@ -50,7 +51,17 @@ gulp.task('sass:inject', function () {
             });
         }))
         .pipe(gulp.dest('./'));
-}); //Ends
+});
+
+gulp.task('sass:compile', function() {
+    exec('npm run sass', (error, stdout, stderr) => {
+        if (error) {
+            console.log(error);
+            return;
+        }
+        console.log(stdout);
+    });
+});
 
 gulp.task('sass:watch', function () {
     gulp.watch(['./*.scss'], ["sass:inject"]);
