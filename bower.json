@@ -1,5 +1,5 @@
 {
-  "name": "kemet-layout",
+  "name": "kemet-styles",
   "description": "Sass layouts for Polymer!",
   "main": "kemet-layout.html",
   "dependencies": {

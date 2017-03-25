@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts" : {
-    "sass" : "node-sass ./kemet-layout-styles.scss --output ./"
+    "sass" : "node-sass ./kemet-styles-layout.scss --output ./"
   },
   "devDependencies": {
     "fs": "^0.0.2",
