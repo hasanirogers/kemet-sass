@@ -1,5 +1,10 @@
 {
-  "private": true,
+  "name" : "kemet-styles",
+  "version" : "0.0.1",
+  "main" : "kemet-styles-layout.html",
+  "repository" : "https://github.com/Afrotechnologies/kemet-styles",
+  "author" : "Hasani Rogers <hasani.rogers@afrotechnologies.com>",
+  "license" : "MIT",
   "scripts" : {
     "sass" : "node-sass ./kemet-styles-layout.scss --output ./"
   },
