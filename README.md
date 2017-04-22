@@ -1,38 +1,23 @@
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element)
+
 # \<kemet-layout\>
 
-Sass layouts for Polymer!
+A styles module for super advanced layouts!
 
-## Install the Polymer-CLI
-
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
-
-## Viewing Your Application
-
+<!--
 ```
-$ polymer serve
+<custom-element-demo>
+  <template>
+    <link rel="import" href="kemet-flipcard.html">
+  </template>
+</custom-element-demo>
 ```
-
-## Building Your Application
-
+-->
+```html
+<div layout="flexrow">
+    <div><span class="box">Item 1</span></div>
+    <div><span class="box">Item 2</span></div>
+    <div><span class="box">Item 3</span></div>
+    <div><span class="box">Item 4</span></div>
+</div>
 ```
-$ polymer build
-```
-
-This will create a `build/` folder with `bundled/` and `unbundled/` sub-folders
-containing a bundled (Vulcanized) and unbundled builds, both run through HTML,
-CSS, and JS optimizers.
-
-You can serve the built versions by giving `polymer serve` a folder to serve
-from:
-
-```
-$ polymer serve build/bundled
-```
-
-## Running Tests
-
-```
-$ polymer test
-```
-
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
