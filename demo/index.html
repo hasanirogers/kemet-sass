@@ -4,18 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>kemet-layout demo</title>
+    <title>kemet-styles demo</title>
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../kemet-styles-layout.html">
+    <link rel="import" href="../kemet-styles.html">
 
-    <style is="custom-style" include="demo-pages-shared-styles"></style>
-    <style is="custom-style" include="kemet-styles-layout"></style>
     <style>
-      /* styles for demoing the layout */
       body {
         overflow-x: hidden;
       }
@@ -30,6 +28,12 @@
       }
     </style>
 
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles"></style>
+    </custom-style>
+    <custom-style>
+      <style is="custom-style" include="kemet-styles-layout"></style>
+    </custom-style>
   </head>
   <body>
     <div class="vertical-section-container">
@@ -244,8 +248,6 @@
           </template>
         </demo-snippet>
       </figure>
-
-
     </div>
   </body>
 </html>
