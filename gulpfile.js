@@ -5,10 +5,12 @@ const   glob = require('glob'),
         gutil = require('gutil'),
         print = require('gulp-print'),
         file = require('gulp-file'),
+        concat = require('gulp-concat'),
         libsass = require('gulp-sass'),
         sourcemaps = require('gulp-sourcemaps'),
         autoprefixer = require('gulp-autoprefixer'),
-        sassdoc = require('sassdoc');
+        sassdoc = require('sassdoc'),
+        mergeStream = require('merge-stream');
 
 
 let config = {
@@ -41,7 +43,27 @@ gulp.task('compile', () => {
             .pipe(autoprefixer(config.autoprefixer)).on('error', gutil.log)
             .pipe(sourcemaps.write('.')).on('error', gutil.log)
             .pipe(gulp.dest('dist/css'));
-})
+});
+
+
+gulp.task('dist', () => {
+
+    var plainFiles,
+        styleFile;
+
+
+    plainFiles = gulp
+                .src('src/scss/**/*.scss')
+                .pipe(gulp.dest('./dist/scss'));
+
+    styleFile = gulp
+                .src(srcfiles)
+                .pipe(concat('kemet-styles.scss'))
+                .pipe(gulp.dest('./dist/kemet-styles/'));
+
+
+    return mergeStream(plainFiles, styleFile);
+});
 
 
 gulp.task('docs', () => {
@@ -52,5 +74,5 @@ gulp.task('docs', () => {
     return gulp
         .src('src/scss/**/*.scss')
         .pipe(sassdoc(options));
-})
+});
 

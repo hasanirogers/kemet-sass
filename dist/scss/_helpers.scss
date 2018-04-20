@@ -1,0 +1,179 @@
+@function getListFirst($list) {
+    @return nth($list, 1);
+}
+
+@function getListLast($list) {
+    $max: length($list);
+    @return nth($list, $max);
+}
+
+
+@mixin makeBreakpoints() {
+
+    @each $breakpoint, $pixel in $breakpoints {
+
+        @media screen and (min-width: #{$pixel}) {
+
+            [breakpoint*="#{$breakpoint}-25"] {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+
+            [breakpoint*="#{$breakpoint}-33"] {
+                flex: 0 0 33.33%;
+                max-width: 33.33%;
+            }
+
+            [breakpoint*="#{$breakpoint}-66"] {
+                flex: 0 0 66.66%;
+                max-width: 66.66%;
+            }
+
+            [breakpoint*="#{$breakpoint}-75"] {
+                flex: 0 0 75%;
+                max-width: 75%;
+            }
+
+            [breakpoint*="#{$breakpoint}-content"] {
+                flex: 0 0 auto;
+            }
+
+            // if "ten" "five" or "twenty"
+            // through 10 x $i*10 must equal 100
+            @for $i from 1 through 10 {
+                $size: $i*10;
+                $percent: $size + '%';
+                [breakpoint*="#{$breakpoint}-#{$size}"] {
+                    flex: 0 0 unquote($percent);
+                    max-width: unquote($percent);
+                }
+            }
+
+        } // media query
+
+    }
+
+}
+
+@mixin makeGutters() {
+
+    @each $attsvalue, $value in $gutters {
+
+        $gutterselector: '[gutters="#{$attsvalue}"]';
+
+        @if $attsvalue == zero {
+            $gutterselector: '[gutters]';
+        }
+
+        #{$gutterselector} {
+            margin-right: -($value);
+        }
+
+        #{$gutterselector} > * {
+            padding-right: $value;
+        }
+
+        [layout="flexgrid"]#{$gutterselector} > * {
+            margin-bottom: $value;
+        }
+
+        [layout="flexcolumn"]#{$gutterselector} > :not(:first-child) {
+            margin-top: $value;
+        }
+
+
+        @media only screen and (max-width: $stackpoint) {
+            [layout="flexrow"]#{$gutterselector}[autostack] > * {
+                margin-bottom: $value;
+            }
+        }
+
+    }
+
+}
+
+@mixin makeOrder() {
+
+    @each $breakpoint, $pixel in $breakpoints {
+        // TODO add media query
+        @for $i from 1 through $order {
+            [order="#{$breakpoint}-minus-#{$i}"] {
+                order: -#{$i};
+            }
+        }
+
+        @for $i from 1 through $order {
+            [order="#{$breakpoint}-plus-#{$i}"] {
+                order: #{$i};
+            }
+        }
+
+    }
+
+}
+
+@mixin makeVisibility() {
+
+    @each $breakpoint, $range in $breakranges {
+
+        $min: getListFirst($range);
+        $max: getListLast($range);
+
+        @media screen and (min-width: $min) {
+            .show-#{$breakpoint}-up {
+                display: inherit !important;
+            }
+
+            table.show-#{$breakpoint}-up {
+                display: table !important;
+            }
+
+            .hide-#{$breakpoint}-up {
+                display: none !important;
+            }
+        }
+
+        @media screen and (max-width: $max) {
+            .show-#{$breakpoint}-down {
+                display: inherit !important;
+            }
+
+            table.show-#{$breakpoint}-down {
+                display: table !important;
+            }
+
+            .hide-#{$breakpoint}-down {
+                display: none !important;
+            }
+        }
+
+        @media screen and (min-width: $min) and (max-width: $max) {
+            .show-#{$breakpoint} {
+                display: inherit !important;
+            }
+
+            table.show-#{$breakpoint} {
+                display: table !important;
+            }
+
+            .hide-#{$breakpoint} {
+                display: none !important;
+            }
+        }
+
+    } // @each
+
+}
+
+@mixin makeFlexgridBasis() {
+    @each $breakpoint, $pixel in $breakpoints {
+        @for $i from 1 through $flexgridcolumns {
+            $base: 100/$i;
+
+            [basis*="#{$breakpoint}-#{$i}-columns"] > * {
+                flex: 0 0 unquote($base+'%');
+                max-width: unquote($base+'%');
+            }
+        }
+    }
+}

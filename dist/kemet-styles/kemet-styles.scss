@@ -1,0 +1,391 @@
+// *zero is requied
+$gutters: (
+    minus-3: 0.5rem,
+    minus-2: 0.75rem,
+    minus-1: 0.85rem,
+    zero: 1rem,
+    plus-1: 1.125rem,
+    plus-2: 1.25rem,
+    plus-3: 1.5rem,
+    plus-4: 2rem,
+    plus-5: 2.25rem,
+    plus-6: 3rem,
+);
+
+$stackpoint: 640px;
+
+$breakpoints: (
+    tiny: 320px,
+    small: 640px,
+    medium: 1024px,
+    large: 1440px,
+    huge: 1920px
+);
+
+$breakranges: (
+    tiny: (0px, 319px),
+    small: (320px, 639px),
+    medium: (640px, 1023px),
+    large: (1024px, 1439px),
+    huge: (1440px, 1920px)
+);
+
+$order: 5;
+
+$flexgridcolumns: 12;
+
+@function getListFirst($list) {
+    @return nth($list, 1);
+}
+
+@function getListLast($list) {
+    $max: length($list);
+    @return nth($list, $max);
+}
+
+
+@mixin makeBreakpoints() {
+
+    @each $breakpoint, $pixel in $breakpoints {
+
+        @media screen and (min-width: #{$pixel}) {
+
+            [breakpoint*="#{$breakpoint}-25"] {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+
+            [breakpoint*="#{$breakpoint}-33"] {
+                flex: 0 0 33.33%;
+                max-width: 33.33%;
+            }
+
+            [breakpoint*="#{$breakpoint}-66"] {
+                flex: 0 0 66.66%;
+                max-width: 66.66%;
+            }
+
+            [breakpoint*="#{$breakpoint}-75"] {
+                flex: 0 0 75%;
+                max-width: 75%;
+            }
+
+            [breakpoint*="#{$breakpoint}-content"] {
+                flex: 0 0 auto;
+            }
+
+            // if "ten" "five" or "twenty"
+            // through 10 x $i*10 must equal 100
+            @for $i from 1 through 10 {
+                $size: $i*10;
+                $percent: $size + '%';
+                [breakpoint*="#{$breakpoint}-#{$size}"] {
+                    flex: 0 0 unquote($percent);
+                    max-width: unquote($percent);
+                }
+            }
+
+        } // media query
+
+    }
+
+}
+
+@mixin makeGutters() {
+
+    @each $attsvalue, $value in $gutters {
+
+        $gutterselector: '[gutters="#{$attsvalue}"]';
+
+        @if $attsvalue == zero {
+            $gutterselector: '[gutters]';
+        }
+
+        #{$gutterselector} {
+            margin-right: -($value);
+        }
+
+        #{$gutterselector} > * {
+            padding-right: $value;
+        }
+
+        [layout="flexgrid"]#{$gutterselector} > * {
+            margin-bottom: $value;
+        }
+
+        [layout="flexcolumn"]#{$gutterselector} > :not(:first-child) {
+            margin-top: $value;
+        }
+
+
+        @media only screen and (max-width: $stackpoint) {
+            [layout="flexrow"]#{$gutterselector}[autostack] > * {
+                margin-bottom: $value;
+            }
+        }
+
+    }
+
+}
+
+@mixin makeOrder() {
+
+    @each $breakpoint, $pixel in $breakpoints {
+        // TODO add media query
+        @for $i from 1 through $order {
+            [order="#{$breakpoint}-minus-#{$i}"] {
+                order: -#{$i};
+            }
+        }
+
+        @for $i from 1 through $order {
+            [order="#{$breakpoint}-plus-#{$i}"] {
+                order: #{$i};
+            }
+        }
+
+    }
+
+}
+
+@mixin makeVisibility() {
+
+    @each $breakpoint, $range in $breakranges {
+
+        $min: getListFirst($range);
+        $max: getListLast($range);
+
+        @media screen and (min-width: $min) {
+            .show-#{$breakpoint}-up {
+                display: inherit !important;
+            }
+
+            table.show-#{$breakpoint}-up {
+                display: table !important;
+            }
+
+            .hide-#{$breakpoint}-up {
+                display: none !important;
+            }
+        }
+
+        @media screen and (max-width: $max) {
+            .show-#{$breakpoint}-down {
+                display: inherit !important;
+            }
+
+            table.show-#{$breakpoint}-down {
+                display: table !important;
+            }
+
+            .hide-#{$breakpoint}-down {
+                display: none !important;
+            }
+        }
+
+        @media screen and (min-width: $min) and (max-width: $max) {
+            .show-#{$breakpoint} {
+                display: inherit !important;
+            }
+
+            table.show-#{$breakpoint} {
+                display: table !important;
+            }
+
+            .hide-#{$breakpoint} {
+                display: none !important;
+            }
+        }
+
+    } // @each
+
+}
+
+@mixin makeFlexgridBasis() {
+    @each $breakpoint, $pixel in $breakpoints {
+        @for $i from 1 through $flexgridcolumns {
+            $base: 100/$i;
+
+            [basis*="#{$breakpoint}-#{$i}-columns"] > * {
+                flex: 0 0 unquote($base+'%');
+                max-width: unquote($base+'%');
+            }
+        }
+    }
+}
+
+%flexitem {
+    flex: 1;
+    display: block;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+// row layout
+// ----------
+
+[layout="flexrow"] {
+    display: flex;
+    -webkit-padding-start: 0;
+}
+
+[layout="flexrow"] > * {
+    @extend %flexitem;
+}
+
+// flex-items (force them to stretch)
+[layout*="flex"][flex-items] > * {
+    display: flex;
+}
+
+// autostack
+[layout*="flex"][autostack] {
+    flex-direction: column;
+}
+
+[layout*="flex"][autostack][align] > * {
+    align-self: initial;
+}
+
+@media screen and (min-width: $stackpoint) {
+    [layout*="flex"][autostack] {
+        flex-direction: row;
+    }
+}
+
+// align
+[layout*="flex"][align="top"] {
+     align-items: flex-start;
+}
+
+[layout*="flex"][align="middle"] {
+    align-items: center;
+}
+
+[layout*="flex"][align="stretch"] {
+    align-items: stretch;
+}
+
+[layout*="flex"][align="bottom"] {
+    align-items: flex-end;
+}
+
+[layout*="flex"][cross-align="left"] {
+    justify-content: left;
+}
+
+[layout*="flex"][cross-align="right"] {
+    justify-content: right;
+}
+
+[layout*="flex"][cross-align="center"] {
+    justify-content: center;
+}
+
+[layout*="flex"][cross-align="between"] {
+    justify-content: space-between;
+}
+
+[layout*="flex"][cross-align="around"] {
+    justify-content: space-around;
+}
+
+[layout*="flex"] > [align="top"] {
+    align-self: flex-start;
+}
+
+[layout*="flex"] > [align="middle"] {
+     align-self: center;
+}
+
+[layout*="flex"] > [align="stretch"] {
+    align-self: stretch;
+}
+
+[layout*="flex"] > [align="bottom"] {
+    align-self: flex-end;
+}
+
+
+// flexgrid
+// --------
+
+[layout="flexgrid"] {
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-padding-start: 0;
+}
+
+[layout="flexgrid"] > * {
+    @extend %flexitem;
+}
+
+@include makeFlexgridBasis();
+
+
+// flexcolumn
+// ----------
+
+[layout="flexcolumn"] {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+[layout="flexcolumn"] > * {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+[layout="flexcolumn"] > [size-content] {
+    flex: 0 0 auto;
+}
+
+[layout="flexcolumn"][align="bottom"] {
+    justify-content: flex-end;
+}
+
+[layout="flexcolumn"][align="center"] {
+    justify-content: center;
+}
+
+[layout="flexcolumn"][align="between"] {
+    justify-content: space-between;
+}
+
+[layout="flexcolumn"][align="around"] {
+    justify-content: space-around;
+}
+
+[layout="flexcolumn"][align] > * {
+    flex: 0 0 auto;
+}
+
+
+// flexlist
+// ---------
+
+[layout="flexlist"] {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: auto;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    -webkit-padding-start: 0;
+}
+
+[layout="flexlist"] > * {
+    flex: 0 0 auto;
+}
+
+
+// special attributes
+// ------------------
+
+@include makeBreakpoints();
+@include makeGutters();
+@include makeOrder();
+@include makeVisibility();

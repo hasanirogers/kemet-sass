@@ -1,5 +1,5 @@
 {
-  "name": "@kemet/kemet-sass",
+  "name": "kemet-sass",
   "version": "1.0.0",
   "repository": "https://github.com/hasanirogers/kemet-sass",
   "author": "Hasani Rogers <hasani.rogers@gmail.com>",
@@ -18,10 +18,12 @@
     "gulp-print": "^5.0.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4"
-
   },
   "dependencies": {
+    "gulp-concat": "^2.6.1",
     "gutil": "^1.6.4",
-    "sass-lint": "^1.12.1"
+    "merge-stream": "^1.0.1",
+    "sass-lint": "^1.12.1",
+    "sassdoc": "^2.5.0"
   }
 }

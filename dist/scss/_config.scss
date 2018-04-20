@@ -1,0 +1,35 @@
+// *zero is requied
+$gutters: (
+    minus-3: 0.5rem,
+    minus-2: 0.75rem,
+    minus-1: 0.85rem,
+    zero: 1rem,
+    plus-1: 1.125rem,
+    plus-2: 1.25rem,
+    plus-3: 1.5rem,
+    plus-4: 2rem,
+    plus-5: 2.25rem,
+    plus-6: 3rem,
+);
+
+$stackpoint: 640px;
+
+$breakpoints: (
+    tiny: 320px,
+    small: 640px,
+    medium: 1024px,
+    large: 1440px,
+    huge: 1920px
+);
+
+$breakranges: (
+    tiny: (0px, 319px),
+    small: (320px, 639px),
+    medium: (640px, 1023px),
+    large: (1024px, 1439px),
+    huge: (1440px, 1920px)
+);
+
+$order: 5;
+
+$flexgridcolumns: 12;
