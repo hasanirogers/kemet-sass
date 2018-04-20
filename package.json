@@ -1,7 +1,7 @@
 {
   "name": "@kemet/kemet-sass",
   "version": "1.0",
-  "repository": "https://github.com/Afrotechnologies/kemet-styles",
+  "repository": "https://github.com/hasanirogers/kemet-sass",
   "author": "Hasani Rogers <hasani.rogers@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -17,13 +17,11 @@
     "gulp-file": "^0.4.0",
     "gulp-print": "^5.0.0",
     "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4",
-    "gutil": "^1.6.4",
-    "install": "^0.11.0",
-    "npm": "^5.8.0"
+    "gulp-sourcemaps": "^2.6.4"
+
   },
   "dependencies": {
-    "sass-lint": "^1.12.1",
-    "sassdoc": "^2.5.0"
+    "gutil": "^1.6.4",
+    "sass-lint": "^1.12.1"
   }
 }

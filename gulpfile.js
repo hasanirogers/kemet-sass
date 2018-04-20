@@ -7,7 +7,8 @@ const   glob = require('glob'),
         file = require('gulp-file'),
         libsass = require('gulp-sass'),
         sourcemaps = require('gulp-sourcemaps'),
-        autoprefixer = require('gulp-autoprefixer');
+        autoprefixer = require('gulp-autoprefixer'),
+        sassdoc = require('sassdoc');
 
 
 let config = {
@@ -40,5 +41,16 @@ gulp.task('compile', () => {
             .pipe(autoprefixer(config.autoprefixer)).on('error', gutil.log)
             .pipe(sourcemaps.write('.')).on('error', gutil.log)
             .pipe(gulp.dest('dist/css'));
+})
+
+
+gulp.task('docs', () => {
+    var options = {
+        dest: 'docs'
+    }
+
+    return gulp
+        .src('src/scss/**/*.scss')
+        .pipe(sassdoc(options));
 })
 

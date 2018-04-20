@@ -14,3 +14,9 @@ Advanced flex based layouts that work even in IE11!
 ```
 
 [Grab templates and more advanced documentation here](http://kemet.online).
+
+
+Gulp Commands
+-------------
+`gulp compile`
+`gulp docs`
