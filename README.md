@@ -20,3 +20,10 @@ Gulp Commands
 -------------
 `gulp compile`
 `gulp docs`
+
+
+Updates
+-------
+
+1.1.1 Fixed responsiveness for basis attribute. Adjusted default breakpoints.
+

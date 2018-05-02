@@ -15,7 +15,8 @@ const   glob = require('glob'),
 
 let config = {
         libsass: {
-            outputStyle: 'compressed', // expanded
+            // outputStyle: 'expanded',
+            outputStyle: 'compressed',
             sourceMapContents: true
         },
         autoprefixer: {
