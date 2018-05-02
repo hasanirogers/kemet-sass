@@ -18,12 +18,12 @@ Advanced flex based layouts that work even in IE11!
 
 Gulp Commands
 -------------
-`gulp compile`
-`gulp docs`
+`gulp develop` - Starts a server and sets up a watch task to monitor changes you make to src files.
+`gulp docs` - Generates a sassdoc.
 
 
 Updates
 -------
-
 1.1.1 Fixed responsiveness for basis attribute. Adjusted default breakpoints.
+1.1.2 Added demo and development environment for testing changes
 

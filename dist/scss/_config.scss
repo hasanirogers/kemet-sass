@@ -15,11 +15,11 @@ $gutters: (
 $stackpoint: 640px;
 
 $breakpoints: (
-    tiny: 320px,
-    small: 640px,
-    medium: 1024px,
-    large: 1440px,
-    huge: 1920px
+    tiny: 0px,
+    small: 320px,
+    medium: 640px,
+    large: 1024px,
+    huge: 1440px
 );
 
 $breakranges: (
@@ -27,7 +27,7 @@ $breakranges: (
     small: (320px, 639px),
     medium: (640px, 1023px),
     large: (1024px, 1439px),
-    huge: (1440px, 1920px)
+    huge: (1440px, 9999px)
 );
 
 $order: 5;

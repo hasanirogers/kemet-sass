@@ -10,7 +10,8 @@ const   glob = require('glob'),
         sourcemaps = require('gulp-sourcemaps'),
         autoprefixer = require('gulp-autoprefixer'),
         sassdoc = require('sassdoc'),
-        mergeStream = require('merge-stream');
+        mergeStream = require('merge-stream'),
+        browserSync = require('browser-sync').create();
 
 
 let config = {
@@ -46,11 +47,20 @@ gulp.task('compile', () => {
             .pipe(gulp.dest('dist/css'));
 });
 
+gulp.task('serve', () => {
+    browserSync.init({
+        server: {
+            baseDir: "./dist",
+            directory: true
+        }
+    });
+});
 
 gulp.task('dist', () => {
 
     var plainFiles,
-        styleFile;
+        styleFile,
+        demoFiles;
 
 
     plainFiles = gulp
@@ -62,10 +72,13 @@ gulp.task('dist', () => {
                 .pipe(concat('kemet-styles.scss'))
                 .pipe(gulp.dest('./dist/kemet-styles/'));
 
+    demoFiles = gulp
+                .src('src/demo/**')
+                .pipe(gulp.dest('./dist/demo'));
 
-    return mergeStream(plainFiles, styleFile);
+
+    return mergeStream(plainFiles, styleFile, demoFiles);
 });
-
 
 gulp.task('docs', () => {
     var options = {
@@ -77,3 +90,8 @@ gulp.task('docs', () => {
         .pipe(sassdoc(options));
 });
 
+gulp.task('develop', ['serve'], () => {
+
+    gulp.watch(['src/**'], ['compile', 'dist']);
+
+});

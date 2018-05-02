@@ -1,15 +1,16 @@
 {
   "name": "kemet-sass",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "repository": "https://github.com/hasanirogers/kemet-sass",
   "author": "Hasani Rogers <hasani.rogers@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "gulp compile",
+    "start": "gulp develop",
     "lint": "sass-lint --config .sass-lint.yml 'src/scss/**/*.scss' --verbose --no-exit",
     "docs": "sassdoc src/scss/**/*.scss --dest docs"
   },
   "devDependencies": {
+    "browser-sync": "^2.24.2",
     "fs": "^0.0.2",
     "glob": "^7.1.2",
     "gulp": "^3.9.1",

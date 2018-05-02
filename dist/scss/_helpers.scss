@@ -167,13 +167,17 @@
 
 @mixin makeFlexgridBasis() {
     @each $breakpoint, $pixel in $breakpoints {
-        @for $i from 1 through $flexgridcolumns {
-            $base: 100/$i;
+        @media screen and (min-width: #{$pixel}) {
 
-            [basis*="#{$breakpoint}-#{$i}-columns"] > * {
-                flex: 0 0 unquote($base+'%');
-                max-width: unquote($base+'%');
+            @for $i from 1 through $flexgridcolumns {
+                $base: 100/$i;
+
+                [basis*="#{$breakpoint}-#{$i}-columns"] > * {
+                    flex: 0 0 unquote($base+'%');
+                    max-width: unquote($base+'%');
+                }
             }
-        }
+
+        } // media query
     }
 }

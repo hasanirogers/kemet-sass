@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <title>Kemet Demo</title>
+
+  <link href="/css/kemet.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+  <style>
+    body {
+      margin: 2rem;
+      font-size: 16px;
+      font-family: 'PT Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .box {
+      color: white;
+      width: 100%;
+      height: 100%;
+      padding: 0.5rem;
+      box-sizing: border-box;
+      display: inline-block;
+      border: 1px solid rgba(0,0,255,0.1);
+      background-color: #272822;
+    }
+
+    hr {
+      margin: 2rem auto;
+    }
+  </style>
+</head>
+
+<body>
+    <h3>Flexrow</h3>
+    <div layout="flexrow">
+        <div><span class="box">Item 1</span></div>
+        <div><span class="box">Item 2</span></div>
+        <div><span class="box">Item 3</span></div>
+        <div><span class="box">Item 4</span></div>
+    </div>
+
+    <hr />
+
+    <h3>Autostack &amp; Gutters</h3>
+    <div layout="flexrow" autostack gutters>
+        <div><span class="box">Item 1</span></div>
+        <div><span class="box">Item 2</span></div>
+        <div><span class="box">Item 3</span></div>
+        <div><span class="box">Item 4</span></div>
+    </div>
+
+    <hr />
+
+    <h3>+/- Gutters</h3>
+    <div layout="flexrow" gutters="plus-6">
+        <div breakpoint="medium-33"><span class="box">Item 1</span></div>
+        <div><span class="box">Item 2</span></div>
+        <div><span class="box">Item 3</span></div>
+        <div><span class="box">Item 4</span></div>
+    </div>
+
+    <hr />
+
+    <h3>Breakpoints</h3>
+    <div layout="flexrow" flex-items gutters="minus-1">
+        <div breakpoint="tiny-content">
+          <span class="box">
+            <iron-icon icon="icons:polymer"></iron-icon>
+          </span>
+        </div>
+        <div><span class="box">Item 2</span></div>
+        <div><span class="box">Item 3</span></div>
+        <div breakpoint="tiny-50"><span class="box">Item 4</span></div>
+    </div>
+
+    <hr />
+
+    <h3>Alignment</h3>
+    <div layout="flexrow" gutters="plus-1" align="middle" style="height: 64px;">
+        <div align="bottom">
+          <span class="box">Item 1</span>
+        </div>
+        <div><span class="box">Item 2</span></div>
+        <div align="top">
+          <span class="box">Item 3</span>
+        </div>
+        <div><span class="box">Item 4</span></div>
+        <div align="bottom">
+          <span class="box">Item 5</span>
+        </div>
+    </div>
+
+    <hr />
+
+    <h3>Cross Alignment</h3>
+    <div layout="flexrow" cross-align="between">
+        <div breakpoint="tiny-66"><span class="box">Left</span></div>
+        <div breakpoint="tiny-content"><span class="box">Right</span></div>
+    </div>
+
+    <hr />
+
+    <h3>Flexgrid</h3>
+    <div layout="flexgrid" gutters="plus-1">
+        <div breakpoint="tiny-100 medium-33 large-25">
+          <span class="box">1</span>
+        </div>
+        <div breakpoint="tiny-50 medium-33 large-25">
+          <span class="box">2</span>
+        </div>
+        <div breakpoint="tiny-50 medium-33 large-25">
+          <span class="box">3</span>
+        </div>
+        <div breakpoint="tiny-100 medium-100 large-25">
+          <span class="box">4</span>
+        </div>
+    </div>
+
+    <hr />
+
+    <h3>Flexgrid basis</h3>
+    <div layout="flexgrid" gutters basis="tiny-4-columns medium-6-columns huge-12-columns">
+      <div><span class="box">1</span></div>
+      <div><span class="box">2</span></div>
+      <div><span class="box">3</span></div>
+      <div><span class="box">4</span></div>
+      <div><span class="box">5</span></div>
+      <div><span class="box">6</span></div>
+      <div><span class="box">7</span></div>
+      <div><span class="box">8</span></div>
+      <div><span class="box">9</span></div>
+      <div><span class="box">10</span></div>
+      <div><span class="box">11</span></div>
+      <div><span class="box">12</span></div>
+    </div>
+
+    <hr />
+
+    <h3>Flexcolumn</h3>
+    <div layout="flexcolumn" gutters style="height:300px;">
+      <div><span class="box">1</span></div>
+      <div><span class="box">2</span></div>
+      <div><span class="box">3</span></div>
+    </div>
+
+    <hr />
+
+    <h3>Flexcolumn size</h3>
+    <div layout="flexcolumn" gutters="" style="height:300px;">
+      <div size-content=""><span class="box">1</span></div>
+      <div><span class="box">2</span></div>
+      <div><span class="box">3</span></div>
+    </div>
+
+    <hr />
+
+    <h3>Flexlist</h3>
+    <div layout="flexlist" gutters="">
+      <div><span class="box">One</span></div>
+      <div><span class="box">Two</span></div>
+      <div><span class="box">Three</span></div>
+      <div><span class="box">Four</span></div>
+      <div><span class="box">Five</span></div>
+      <div><span class="box">Six</span></div>
+    </div>
+</body>
