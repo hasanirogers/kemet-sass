@@ -1,9 +1,31 @@
-// *zero is requied
+///
+///  __   __   _ _ _ _   _ _       _ _   _ _ _ _   _ _ _ _ _
+/// |  | /  / |    _ _| |   \     /   | |   _ _ | |_ _   _ _|
+/// |  |/  /  |  |_ _   |    \   /    | |  |_ _       | |
+/// |     \   |   _ _|  |  \  \_/  /  | |   _ _|      | |
+/// |  |\  \  |  |_ _   |  |\     /|  | |  | _ _      | |
+/// |__| \__\ |_ _ _ _| |__| \_ _/ |__| |_ _ _ _|     |_|
+///
+/// Comments follow sassdoc annotation,
+/// http://sassdoc.com
+///
+///
+
+
+
+
+/// You can set gutters to whatever space you like.
+/// The defaults here should cover most needs.
+/// While you can add or remove plus/minus, zero is requied
+/// @type Map
+/// @access public
+/// @group config-variables
+
 $gutters: (
     minus-3: 0.5rem,
     minus-2: 0.75rem,
     minus-1: 0.85rem,
-    zero: 1rem,
+    zero: 1rem, // do not remove this
     plus-1: 1.125rem,
     plus-2: 1.25rem,
     plus-3: 1.5rem,
@@ -12,24 +34,65 @@ $gutters: (
     plus-6: 3rem,
 );
 
+
+
+
+/// The point where Kemet goes from a small "mobile" layout to a full layout.
+/// $stackpoint is used primarily to configure where autostack forces a mobile layout.
+/// @type String
+/// @access public
+/// @group config-variables
+
 $stackpoint: 640px;
 
+
+
+
+/// A map that defines Kemet's breakpoints
+/// @type Map
+/// @access public
+/// @group config-variables
+
 $breakpoints: (
-    tiny: 0px,
+    tiny: 0,
     small: 320px,
     medium: 640px,
     large: 1024px,
     huge: 1440px
 );
 
+
+
+
+/// A map that defines ranges for Kemet's visibility classes
+/// @type Map
+/// @access public
+/// @group config-variables
+
 $breakranges: (
-    tiny: (0px, 319px),
+    tiny: (0, 319px),
     small: (320px, 639px),
     medium: (640px, 1023px),
     large: (1024px, 1439px),
     huge: (1440px, 9999px)
 );
 
+
+
+
+/// Determines the number of priority that can be set for the order attribute
+/// @type Number
+/// @access public
+/// @group config-variables
+
 $order: 5;
+
+
+
+
+/// The number of columns that can exist while using basis with flexgrid.
+/// @type Number
+/// @access public
+/// @group config-variables
 
 $flexgridcolumns: 12;
