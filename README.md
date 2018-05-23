@@ -26,4 +26,5 @@ Updates
 -------
 * 1.1.1 Fixed responsiveness for basis attribute. Adjusted default breakpoints.
 * 1.1.2 Added demo and development environment for testing changes.
+* 1.1.3 Fixed responsiveness for order attribute. Added order and visibility demos.
 

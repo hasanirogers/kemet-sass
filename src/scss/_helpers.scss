@@ -95,16 +95,17 @@
 @mixin makeOrder() {
 
     @each $breakpoint, $pixel in $breakpoints {
-        // TODO add media query
-        @for $i from 1 through $order {
-            [order="#{$breakpoint}-minus-#{$i}"] {
-                order: -#{$i};
+        @media screen and (min-width: #{$pixel}) {
+            @for $i from 1 through $order {
+                [order="#{$breakpoint}-minus-#{$i}"] {
+                    order: -#{$i};
+                }
             }
-        }
 
-        @for $i from 1 through $order {
-            [order="#{$breakpoint}-plus-#{$i}"] {
-                order: #{$i};
+            @for $i from 1 through $order {
+                [order="#{$breakpoint}-plus-#{$i}"] {
+                    order: #{$i};
+                }
             }
         }
 
