@@ -31,8 +31,20 @@ $gutters: (
     plus-3: 1.5rem,
     plus-4: 2rem,
     plus-5: 2.25rem,
-    plus-6: 3rem,
+    plus-6: 3rem
 );
+
+
+
+
+/// Controls breakpoint sizing.
+/// Must equal either "fives", "tens", or "twenties" exactly or Kemet will break
+/// Note: that -25 -75 will still be added if this is by tens or twenties.
+/// @type String
+/// @access public
+/// @group config-variables
+
+$flexiplier: 'tens';
 
 
 
@@ -80,7 +92,7 @@ $breakranges: (
 
 
 
-/// Determines the number of priority that can be set for the order attribute
+/// Determines the number of priority that can be set for the order attribute.
 /// @type Number
 /// @access public
 /// @group config-variables
@@ -96,6 +108,56 @@ $order: 5;
 /// @group config-variables
 
 $flexgridcolumns: 12;
+
+
+
+
+/// A map that defines sizes for type
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$typesizers: (
+    minus-3: 0.5rem,
+    minus-2: 0.75rem,
+    minus-1: 0.85rem,
+    base: 1rem,
+    plus-1: 1.125rem,
+    plus-2: 1.25rem,
+    plus-3: 1.5rem,
+    plus-4: 2rem,
+    plus-5: 2.25rem,
+    plus-6: 3rem
+);
+
+
+
+
+/// Control whether or not order attributes will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeorder: true;
+
+
+
+/// Control whether or not visibility classes will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makevisibility: true;
+
+
+
+
+/// Control whether or not text classes will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$maketext: true;
 
 @function getListFirst($list) {
     @return nth($list, 1);
@@ -113,9 +175,11 @@ $flexgridcolumns: 12;
 
         @media screen and (min-width: #{$pixel}) {
 
-            [breakpoint*="#{$breakpoint}-25"] {
-                flex: 0 0 25%;
-                max-width: 25%;
+            @if $flexiplier != 'fives' {
+                [breakpoint*="#{$breakpoint}-25"] {
+                    flex: 0 0 25%;
+                    max-width: 25%;
+                }
             }
 
             [breakpoint*="#{$breakpoint}-33"] {
@@ -128,23 +192,48 @@ $flexgridcolumns: 12;
                 max-width: 66.66%;
             }
 
-            [breakpoint*="#{$breakpoint}-75"] {
-                flex: 0 0 75%;
-                max-width: 75%;
+            @if $flexiplier != 'fives' {
+                [breakpoint*="#{$breakpoint}-75"] {
+                    flex: 0 0 75%;
+                    max-width: 75%;
+                }
             }
 
             [breakpoint*="#{$breakpoint}-content"] {
                 flex: 0 0 auto;
             }
 
-            // if "ten" "five" or "twenty"
-            // through 10 x $i*10 must equal 100
-            @for $i from 1 through 10 {
-                $size: $i*10;
-                $percent: $size + '%';
-                [breakpoint*="#{$breakpoint}-#{$size}"] {
-                    flex: 0 0 unquote($percent);
-                    max-width: unquote($percent);
+
+            @if $flexiplier == 'fives' {
+                @for $i from 1 through 20 {
+                    $size: $i*5;
+                    $percent: $size + '%';
+                    [breakpoint*="#{$breakpoint}-#{$size}"] {
+                        flex: 0 0 unquote($percent);
+                        max-width: unquote($percent);
+                    }
+                }
+            }
+
+            @if $flexiplier == 'tens' {
+                @for $i from 1 through 10 {
+                    $size: $i*10;
+                    $percent: $size + '%';
+                    [breakpoint*="#{$breakpoint}-#{$size}"] {
+                        flex: 0 0 unquote($percent);
+                        max-width: unquote($percent);
+                    }
+                }
+            }
+
+            @if $flexiplier == 'twenties' {
+                @for $i from 1 through 5 {
+                    $size: $i*20;
+                    $percent: $size + '%';
+                    [breakpoint*="#{$breakpoint}-#{$size}"] {
+                        flex: 0 0 unquote($percent);
+                        max-width: unquote($percent);
+                    }
                 }
             }
 
@@ -187,6 +276,16 @@ $flexgridcolumns: 12;
             }
         }
 
+    }
+
+}
+
+@mixin makeTypeSizers() {
+
+    @each $key, $value in $typesizers {
+        .text-#{$key} {
+            font-size: $value;
+        }
     }
 
 }
@@ -455,5 +554,23 @@ $flexgridcolumns: 12;
 
 @include makeBreakpoints();
 @include makeGutters();
-@include makeOrder();
-@include makeVisibility();
+
+@if $makeorder {
+    @include makeOrder();
+}
+
+
+// utility classes
+// ---------------
+
+@if $makevisibility {
+    @include makeVisibility();
+}
+
+@if $maketext {
+    .text-left { text-align: left; }
+    .text-right { text-align: right; }
+    .text-center { text-align: center; }
+
+    @include makeTypeSizers();
+}

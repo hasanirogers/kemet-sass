@@ -171,5 +171,23 @@
 
 @include makeBreakpoints();
 @include makeGutters();
-@include makeOrder();
-@include makeVisibility();
+
+@if $makeorder {
+    @include makeOrder();
+}
+
+
+// utility classes
+// ---------------
+
+@if $makevisibility {
+    @include makeVisibility();
+}
+
+@if $maketext {
+    .text-left { text-align: left; }
+    .text-right { text-align: right; }
+    .text-center { text-align: center; }
+
+    @include makeTypeSizers();
+}

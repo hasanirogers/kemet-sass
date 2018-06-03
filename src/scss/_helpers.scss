@@ -14,9 +14,11 @@
 
         @media screen and (min-width: #{$pixel}) {
 
-            [breakpoint*="#{$breakpoint}-25"] {
-                flex: 0 0 25%;
-                max-width: 25%;
+            @if $flexiplier != 'fives' {
+                [breakpoint*="#{$breakpoint}-25"] {
+                    flex: 0 0 25%;
+                    max-width: 25%;
+                }
             }
 
             [breakpoint*="#{$breakpoint}-33"] {
@@ -29,23 +31,48 @@
                 max-width: 66.66%;
             }
 
-            [breakpoint*="#{$breakpoint}-75"] {
-                flex: 0 0 75%;
-                max-width: 75%;
+            @if $flexiplier != 'fives' {
+                [breakpoint*="#{$breakpoint}-75"] {
+                    flex: 0 0 75%;
+                    max-width: 75%;
+                }
             }
 
             [breakpoint*="#{$breakpoint}-content"] {
                 flex: 0 0 auto;
             }
 
-            // if "ten" "five" or "twenty"
-            // through 10 x $i*10 must equal 100
-            @for $i from 1 through 10 {
-                $size: $i*10;
-                $percent: $size + '%';
-                [breakpoint*="#{$breakpoint}-#{$size}"] {
-                    flex: 0 0 unquote($percent);
-                    max-width: unquote($percent);
+
+            @if $flexiplier == 'fives' {
+                @for $i from 1 through 20 {
+                    $size: $i*5;
+                    $percent: $size + '%';
+                    [breakpoint*="#{$breakpoint}-#{$size}"] {
+                        flex: 0 0 unquote($percent);
+                        max-width: unquote($percent);
+                    }
+                }
+            }
+
+            @if $flexiplier == 'tens' {
+                @for $i from 1 through 10 {
+                    $size: $i*10;
+                    $percent: $size + '%';
+                    [breakpoint*="#{$breakpoint}-#{$size}"] {
+                        flex: 0 0 unquote($percent);
+                        max-width: unquote($percent);
+                    }
+                }
+            }
+
+            @if $flexiplier == 'twenties' {
+                @for $i from 1 through 5 {
+                    $size: $i*20;
+                    $percent: $size + '%';
+                    [breakpoint*="#{$breakpoint}-#{$size}"] {
+                        flex: 0 0 unquote($percent);
+                        max-width: unquote($percent);
+                    }
                 }
             }
 
@@ -88,6 +115,16 @@
             }
         }
 
+    }
+
+}
+
+@mixin makeTypeSizers() {
+
+    @each $key, $value in $typesizers {
+        .text-#{$key} {
+            font-size: $value;
+        }
     }
 
 }

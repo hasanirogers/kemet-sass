@@ -31,8 +31,20 @@ $gutters: (
     plus-3: 1.5rem,
     plus-4: 2rem,
     plus-5: 2.25rem,
-    plus-6: 3rem,
+    plus-6: 3rem
 );
+
+
+
+
+/// Controls breakpoint sizing.
+/// Must equal either "fives", "tens", or "twenties" exactly or Kemet will break
+/// Note: that -25 -75 will still be added if this is by tens or twenties.
+/// @type String
+/// @access public
+/// @group config-variables
+
+$flexiplier: 'tens';
 
 
 
@@ -80,7 +92,7 @@ $breakranges: (
 
 
 
-/// Determines the number of priority that can be set for the order attribute
+/// Determines the number of priority that can be set for the order attribute.
 /// @type Number
 /// @access public
 /// @group config-variables
@@ -96,3 +108,53 @@ $order: 5;
 /// @group config-variables
 
 $flexgridcolumns: 12;
+
+
+
+
+/// A map that defines sizes for type
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$typesizers: (
+    minus-3: 0.5rem,
+    minus-2: 0.75rem,
+    minus-1: 0.85rem,
+    base: 1rem,
+    plus-1: 1.125rem,
+    plus-2: 1.25rem,
+    plus-3: 1.5rem,
+    plus-4: 2rem,
+    plus-5: 2.25rem,
+    plus-6: 3rem
+);
+
+
+
+
+/// Control whether or not order attributes will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeorder: true;
+
+
+
+/// Control whether or not visibility classes will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makevisibility: true;
+
+
+
+
+/// Control whether or not text classes will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$maketext: true;
