@@ -52,6 +52,10 @@ gulp.task('serve', () => {
         server: {
             baseDir: "./dist",
             directory: true
+        },
+        port: 3030,
+        ui: {
+            port: 3031
         }
     });
 });
