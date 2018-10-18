@@ -29,4 +29,5 @@ Updates
 * 1.1.3 Fixed responsiveness for order attribute. Added order and visibility demos.
 
 * 1.2.0 Added flexiplier config. Added configs for toggling order and visibility. Added text helpers.
+* 1.2.1 Updated default media query config iOS friendly breakpoints.
 

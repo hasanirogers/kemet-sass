@@ -67,8 +67,8 @@ $stackpoint: 640px;
 
 $breakpoints: (
     tiny: 0,
-    small: 320px,
-    medium: 640px,
+    small: 321px,
+    medium: 768px,
     large: 1024px,
     huge: 1440px
 );
@@ -83,8 +83,8 @@ $breakpoints: (
 
 $breakranges: (
     tiny: (0, 319px),
-    small: (320px, 639px),
-    medium: (640px, 1023px),
+    small: (320px, 767px),
+    medium: (768px, 1023px),
     large: (1024px, 1439px),
     huge: (1440px, 9999px)
 );
