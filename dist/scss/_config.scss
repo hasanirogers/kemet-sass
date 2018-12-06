@@ -159,3 +159,13 @@ $makevisibility: true;
 /// @group config-variables
 
 $maketext: true;
+
+
+
+
+/// Control whether or not responsive gutters will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeresponsivegutters: true;

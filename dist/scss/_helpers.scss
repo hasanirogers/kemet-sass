@@ -106,31 +106,33 @@
         }
     }
 
-    @each $breakpoint, $pixel in $breakpoints {
-        @media screen and (min-width: #{$pixel}) {
-            @each $attsvalue, $value in $gutters {
-                $gutterselector: '[gutters*="#{$breakpoint}-#{$attsvalue}"]';
-                // @debug $gutterselector;
+    @if $makeresponsivegutters {
+        @each $breakpoint, $pixel in $breakpoints {
+            @media screen and (min-width: #{$pixel}) {
+                @each $attsvalue, $value in $gutters {
+                    $gutterselector: '[gutters*="#{$breakpoint}-#{$attsvalue}"]';
+                    // @debug $gutterselector;
 
-                #{$gutterselector} {
-                    margin-right: -($value);
-                }
+                    #{$gutterselector} {
+                        margin-right: -($value);
+                    }
 
-                #{$gutterselector} > * {
-                    padding-right: $value;
-                }
+                    #{$gutterselector} > * {
+                        padding-right: $value;
+                    }
 
-                [layout="flexgrid"]#{$gutterselector} > * {
-                    margin-bottom: $value;
-                }
-
-                [layout="flexcolumn"]#{$gutterselector} > :not(:first-child) {
-                    margin-top: $value;
-                }
-
-                @media only screen and (max-width: $stackpoint) {
-                    [layout="flexrow"]#{$gutterselector}[autostack] > * {
+                    [layout="flexgrid"]#{$gutterselector} > * {
                         margin-bottom: $value;
+                    }
+
+                    [layout="flexcolumn"]#{$gutterselector} > :not(:first-child) {
+                        margin-top: $value;
+                    }
+
+                    @media only screen and (max-width: $stackpoint) {
+                        [layout="flexrow"]#{$gutterselector}[autostack] > * {
+                            margin-bottom: $value;
+                        }
                     }
                 }
             }
