@@ -84,37 +84,57 @@
 
 @mixin makeGutters() {
 
-    @each $attsvalue, $value in $gutters {
+    [gutters] {
+        margin-right: -(map-get($gutters, default));
+    }
 
-        $gutterselector: '[gutters="#{$attsvalue}"]';
+    [gutters] > * {
+        padding-right: map-get($gutters, default);
+    }
 
-        @if $attsvalue == zero {
-            $gutterselector: '[gutters]';
+    [layout="flexgrid"][gutters] > * {
+        margin-bottom: map-get($gutters, default);
+    }
+
+    [layout="flexcolumn"][gutters] > :not(:first-child) {
+        margin-top: map-get($gutters, default);
+    }
+
+    @media only screen and (max-width: $stackpoint) {
+        [layout="flexrow"][gutters][autostack] > * {
+            margin-bottom: map-get($gutters, default);
         }
+    }
 
-        #{$gutterselector} {
-            margin-right: -($value);
-        }
+    @each $breakpoint, $pixel in $breakpoints {
+        @media screen and (min-width: #{$pixel}) {
+            @each $attsvalue, $value in $gutters {
+                $gutterselector: '[gutters*="#{$breakpoint}-#{$attsvalue}"]';
+                // @debug $gutterselector;
 
-        #{$gutterselector} > * {
-            padding-right: $value;
-        }
+                #{$gutterselector} {
+                    margin-right: -($value);
+                }
 
-        [layout="flexgrid"]#{$gutterselector} > * {
-            margin-bottom: $value;
-        }
+                #{$gutterselector} > * {
+                    padding-right: $value;
+                }
 
-        [layout="flexcolumn"]#{$gutterselector} > :not(:first-child) {
-            margin-top: $value;
-        }
+                [layout="flexgrid"]#{$gutterselector} > * {
+                    margin-bottom: $value;
+                }
 
+                [layout="flexcolumn"]#{$gutterselector} > :not(:first-child) {
+                    margin-top: $value;
+                }
 
-        @media only screen and (max-width: $stackpoint) {
-            [layout="flexrow"]#{$gutterselector}[autostack] > * {
-                margin-bottom: $value;
+                @media only screen and (max-width: $stackpoint) {
+                    [layout="flexrow"]#{$gutterselector}[autostack] > * {
+                        margin-bottom: $value;
+                    }
+                }
             }
         }
-
     }
 
 }
