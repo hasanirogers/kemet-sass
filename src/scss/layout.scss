@@ -191,3 +191,7 @@
 
     @include makeTypeSizers();
 }
+
+@if $makespacers {
+    @include makeSpacers();
+}

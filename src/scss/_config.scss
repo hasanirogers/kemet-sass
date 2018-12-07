@@ -134,6 +134,25 @@ $typesizers: (
 
 
 
+/// A map that defines sizes for margins and padding helpers
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$spacers: (
+    none: 0,
+    smallest: 0.5rem,
+    smaller: 1.0rem,
+    small: 1.5rem,
+    normal: 2rem,
+    large: 2.5rem,
+    larger: 3.0rem,
+    largest: 3.5rem
+);
+
+
+
+
 /// Control whether or not order attributes will be included.
 /// @type Boolean
 /// @access public
@@ -169,3 +188,13 @@ $maketext: true;
 /// @group config-variables
 
 $makeresponsivegutters: true;
+
+
+
+
+/// Control whether or not margin utilities will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makespacers: false;

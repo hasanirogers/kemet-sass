@@ -241,3 +241,25 @@
         } // media query
     }
 }
+
+@mixin makeSpacers() {
+
+    $sides: 'top', 'right', 'bottom', 'left';
+
+    @each $breakpoint, $pixel in $breakpoints {
+        @media screen and (min-width: #{$pixel}) {
+            @each $spacer, $value in $spacers {
+                .margin-#{$breakpoint}-#{$spacer} {
+                    margin: $value;
+                }
+
+                @each $side in $sides {
+                    .margin-#{$breakpoint}-#{$spacer}-#{$side} {
+                        margin-#{$side}: $value;
+                    }
+                }
+            }
+        }
+    }
+
+}
