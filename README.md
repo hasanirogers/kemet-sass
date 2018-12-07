@@ -31,3 +31,5 @@ Updates
 * 1.2.0 Added flexiplier config. Added configs for toggling order and visibility. Added text helpers.
 * 1.2.1 Updated default media query config iOS friendly breakpoints.
 
+* 1.3.0 Added responsive gutters. Added margin spacer helper classes.
+
