@@ -16,12 +16,6 @@ Advanced flex based layouts that work even in IE11!
 [Grab templates and more advanced documentation here](http://kemet.online).
 
 
-Gulp Commands
--------------
-`gulp develop` - Starts a server and sets up a watch task to monitor changes you make to src files.
-`gulp docs` - Generates a sassdoc.
-
-
 Updates
 -------
 * 1.1.1 Fixed responsiveness for basis attribute. Adjusted default breakpoints.
@@ -32,4 +26,5 @@ Updates
 * 1.2.1 Updated default media query config iOS friendly breakpoints.
 
 * 1.3.0 Added responsive gutters. Added margin spacer helper classes.
+* 1.3.1 Refactored to use Webpack and Stylelint.
 
