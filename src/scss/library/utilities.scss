@@ -1,0 +1,18 @@
+// utility classes
+// ---------------
+
+@if $makevisibility {
+    @include makeVisibility();
+}
+
+@if $maketext {
+    .text-left { text-align: left; }
+    .text-right { text-align: right; }
+    .text-center { text-align: center; }
+
+    @include makeTypeSizers();
+}
+
+@if $makespacers {
+    @include makeSpacers();
+}

@@ -45,7 +45,7 @@ $gutters: (
 /// @access public
 /// @group config-variables
 
-$flexiplier: 'tens';
+$flexiplier: "tens";
 
 
 
@@ -142,11 +142,11 @@ $typesizers: (
 $spacers: (
     none: 0,
     smallest: 0.5rem,
-    smaller: 1.0rem,
+    smaller: 1rem,
     small: 1.5rem,
     normal: 2rem,
     large: 2.5rem,
-    larger: 3.0rem,
+    larger: 3rem,
     largest: 3.5rem
 );
 
@@ -197,4 +197,4 @@ $makeresponsivegutters: true;
 /// @access public
 /// @group config-variables
 
-$makespacers: false;
+$makespacers: true;

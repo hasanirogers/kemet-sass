@@ -14,7 +14,7 @@
 
         @media screen and (min-width: #{$pixel}) {
 
-            @if $flexiplier != 'fives' {
+            @if $flexiplier != "fives" {
                 [breakpoint*="#{$breakpoint}-25"] {
                     flex: 0 0 25%;
                     max-width: 25%;
@@ -31,7 +31,7 @@
                 max-width: 66.66%;
             }
 
-            @if $flexiplier != 'fives' {
+            @if $flexiplier != "fives" {
                 [breakpoint*="#{$breakpoint}-75"] {
                     flex: 0 0 75%;
                     max-width: 75%;
@@ -43,10 +43,11 @@
             }
 
 
-            @if $flexiplier == 'fives' {
+            @if $flexiplier == "fives" {
                 @for $i from 1 through 20 {
                     $size: $i*5;
-                    $percent: $size + '%';
+                    $percent: $size + "%";
+
                     [breakpoint*="#{$breakpoint}-#{$size}"] {
                         flex: 0 0 unquote($percent);
                         max-width: unquote($percent);
@@ -54,10 +55,11 @@
                 }
             }
 
-            @if $flexiplier == 'tens' {
+            @if $flexiplier == "tens" {
                 @for $i from 1 through 10 {
                     $size: $i*10;
-                    $percent: $size + '%';
+                    $percent: $size + "%";
+
                     [breakpoint*="#{$breakpoint}-#{$size}"] {
                         flex: 0 0 unquote($percent);
                         max-width: unquote($percent);
@@ -65,10 +67,11 @@
                 }
             }
 
-            @if $flexiplier == 'twenties' {
+            @if $flexiplier == "twenties" {
                 @for $i from 1 through 5 {
                     $size: $i*20;
-                    $percent: $size + '%';
+                    $percent: $size + "%";
+
                     [breakpoint*="#{$breakpoint}-#{$size}"] {
                         flex: 0 0 unquote($percent);
                         max-width: unquote($percent);
@@ -83,7 +86,6 @@
 }
 
 @mixin makeGutters() {
-
     [gutters] {
         margin-right: -(map-get($gutters, default));
     }
@@ -233,8 +235,8 @@
                 $base: 100/$i;
 
                 [basis*="#{$breakpoint}-#{$i}-columns"] > * {
-                    flex: 0 0 unquote($base+'%');
-                    max-width: unquote($base+'%');
+                    flex: 0 0 unquote($base+"%");
+                    max-width: unquote($base+"%");
                 }
             }
 
@@ -244,7 +246,7 @@
 
 @mixin makeSpacers() {
 
-    $sides: 'top', 'right', 'bottom', 'left';
+    $sides: "top", "right", "bottom", "left";
 
     @each $breakpoint, $pixel in $breakpoints {
         @media screen and (min-width: #{$pixel}) {

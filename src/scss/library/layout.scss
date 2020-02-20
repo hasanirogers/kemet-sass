@@ -11,7 +11,7 @@
 
 [layout="flexrow"] {
     display: flex;
-    -webkit-padding-start: 0;
+    padding: 0;
 }
 
 [layout="flexrow"] > * {
@@ -40,7 +40,7 @@
 
 // align
 [layout*="flex"][align="top"] {
-     align-items: flex-start;
+    align-items: flex-start;
 }
 
 [layout*="flex"][align="middle"] {
@@ -80,7 +80,7 @@
 }
 
 [layout*="flex"] > [align="middle"] {
-     align-self: center;
+    align-self: center;
 }
 
 [layout*="flex"] > [align="stretch"] {
@@ -98,7 +98,7 @@
 [layout="flexgrid"] {
     display: flex;
     flex-wrap: wrap;
-    -webkit-padding-start: 0;
+    padding: 0;
 }
 
 [layout="flexgrid"] > * {
@@ -155,10 +155,9 @@
     display: inline-flex;
     flex-wrap: wrap;
     width: auto;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     list-style: none;
-    -webkit-padding-start: 0;
 }
 
 [layout="flexlist"] > * {
@@ -174,24 +173,4 @@
 
 @if $makeorder {
     @include makeOrder();
-}
-
-
-// utility classes
-// ---------------
-
-@if $makevisibility {
-    @include makeVisibility();
-}
-
-@if $maketext {
-    .text-left { text-align: left; }
-    .text-right { text-align: right; }
-    .text-center { text-align: center; }
-
-    @include makeTypeSizers();
-}
-
-@if $makespacers {
-    @include makeSpacers();
 }

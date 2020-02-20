@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <base href="/" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-  <title>Kemet Demo</title>
-
-  <link href="/css/kemet.min.css" rel="stylesheet">
+  <title>Kemet Styles Demo</title>
   <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+
   <style>
     body {
       margin: 2rem;
@@ -33,9 +33,14 @@
       margin: 2rem auto;
     }
   </style>
-</head>
+<link href="kemet.layout.css" rel="stylesheet"><link href="kemet.components.css" rel="stylesheet"><link href="kemet.utilities.css" rel="stylesheet"></head>
 
 <body>
+    <h1>Kemet Styles Demo</h1>
+
+    <h2>Layout</h2>
+    <hr />
+
     <h3>Flexrow</h3>
     <div layout="flexrow">
         <div><span class="box">Item 1</span></div>
@@ -43,8 +48,6 @@
         <div><span class="box">Item 3</span></div>
         <div><span class="box">Item 4</span></div>
     </div>
-
-    <hr />
 
     <h3>Autostack &amp; Gutters</h3>
     <div layout="flexrow" autostack gutters>
@@ -54,8 +57,6 @@
         <div><span class="box">Item 4</span></div>
     </div>
 
-    <hr />
-
     <h3>Responsive Gutters</h3>
     <div layout="flexrow" gutters="tiny-none medium-default large-plus-6">
         <div breakpoint="medium-33"><span class="box">Item 1</span></div>
@@ -63,8 +64,6 @@
         <div><span class="box">Item 3</span></div>
         <div><span class="box">Item 4</span></div>
     </div>
-
-    <hr />
 
     <h3>Breakpoints</h3>
     <div layout="flexrow" flex-items gutters="minus-1">
@@ -77,8 +76,6 @@
         <div><span class="box">Item 3</span></div>
         <div breakpoint="tiny-50"><span class="box">Item 4</span></div>
     </div>
-
-    <hr />
 
     <h3>Alignment</h3>
     <div layout="flexrow" gutters="plus-1" align="middle" style="height: 64px;">
@@ -95,15 +92,11 @@
         </div>
     </div>
 
-    <hr />
-
     <h3>Cross Alignment</h3>
     <div layout="flexrow" cross-align="between">
         <div breakpoint="tiny-66"><span class="box">Left</span></div>
         <div breakpoint="tiny-content"><span class="box">Right</span></div>
     </div>
-
-    <hr />
 
     <h3>Flexgrid</h3>
     <div layout="flexgrid" gutters="plus-1">
@@ -121,8 +114,6 @@
         </div>
     </div>
 
-    <hr />
-
     <h3>Flexgrid basis</h3>
     <div layout="flexgrid" gutters basis="tiny-4-columns medium-6-columns huge-12-columns">
       <div><span class="box">1</span></div>
@@ -139,8 +130,6 @@
       <div><span class="box">12</span></div>
     </div>
 
-    <hr />
-
     <h3>Flexcolumn</h3>
     <div layout="flexcolumn" gutters style="height:300px;">
       <div><span class="box">1</span></div>
@@ -148,16 +137,12 @@
       <div><span class="box">3</span></div>
     </div>
 
-    <hr />
-
     <h3>Flexcolumn size</h3>
     <div layout="flexcolumn" gutters="" style="height:300px;">
       <div size-content=""><span class="box">1</span></div>
       <div><span class="box">2</span></div>
       <div><span class="box">3</span></div>
     </div>
-
-    <hr />
 
     <h3>Flexlist</h3>
     <div layout="flexlist" gutters="">
@@ -169,8 +154,6 @@
       <div><span class="box">Six</span></div>
     </div>
 
-    <hr />
-
     <h3>Order</h3>
     <div layout="flexlist" gutters="">
       <div><span class="box">One</span></div>
@@ -181,25 +164,48 @@
       <div><span class="box">Six</span></div>
     </div>
 
+    <br /><br />
+
+    <h2>Utilities</h2>
     <hr />
 
-    <h3>Utilities</h3>
     <section layout="flexrow" gutters autostack>
       <div>
-        <h4>Visibility: Show Classes</h4>
+        <h3>Visibility: Show Classes</h3>
         <p class="box show-medium" style="display:none;">This will only show only on medium.</p>
         <p class="box show-medium-up" style="display:none;">This will show on medium and up.</p>
         <p class="box show-medium-down" style="display:none;">This will show on medium and down.</p>
       </div>
       <div>
-        <h4>Visibility: Hide Classes</h4>
+        <h3>Visibility: Hide Classes</h3>
         <p class="box hide-medium">This will hide only on medium.</p>
         <p class="box hide-medium-up">This will hide on medium and up.</p>
         <p class="box hide-medium-down">This will hide on medium and down.</p>
       </div>
     </section>
 
+    <h3>Font Sizers</h3>
+    <div layout="flexgrid" gutters autostack basis="medium-2-columns">
+      <div><code class="text-plus-6">.text-plus-6</code></div>
+      <div><code class="text-plus-5">.text-plus-5</code></div>
+      <div><code class="text-plus-4">.text-plus-4</code></div>
+      <div><code class="text-plus-3">.text-plus-3</code></div>
+      <div><code class="text-plus-2">.text-plus-2</code></div>
+      <div><code class="text-plus-1">.text-plus-1</code></div>
+      <div><code class="text-base">.text-base</code></div>
+      <div><code class="text-minus-1">.text-minus-1</code></div>
+      <div><code class="text-minus-2">.text-minus-2</code></div>
+      <div><code class="text-minus-3">.text-minus-3</code></div>
+    </div>
 
+    <h3>Spacer Classes</h3>
+    <div class="margin-tiny-largest-left">
+      <div>This will have a left margin of largest for all breakpoints.</div>
+      <code>.margin-tiny-largest-left</code>
+    </div>
 
-
-</body>
+    <div class="margin-small-normal margin-medium-none margin-large-largest">
+      <div>This will have responsive margins of normal at small, none at medium, and large at largest.</div>
+      <code>.margin-small-normal margin-medium-none margin-large-largest</code>
+    </div>
+<script type="text/javascript" src="kemet.layout.js"></script><script type="text/javascript" src="kemet.components.js"></script><script type="text/javascript" src="kemet.utilities.js"></script></body>
