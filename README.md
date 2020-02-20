@@ -1,5 +1,5 @@
-Kemet Sass
-==========
+Kemet Styles
+============
 
 Advanced flex based layouts that work even in IE11!
 ---------------------------------------------------
