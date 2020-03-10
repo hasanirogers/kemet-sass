@@ -10,7 +10,7 @@ kemet-tabs.horizontal [slot="links"] {
 @media screen and (min-width: 768px) {
     kemet-tabs.horizontal [slot="links"] {
         flex-direction: row;
-        border-bottom: 1px solid map-get($colors, "primary");
+        border-bottom: 1px solid #{map-get($colors, "primary")};
     }
 }
 
@@ -27,13 +27,14 @@ kemet-tabs.horizontal kemet-tab {
 }
 
 kemet-tabs.horizontal kemet-tab[selected] {
-    border-left: 4px solid map-get($colors, "primary");
+    /* test me */
+    border-left: 4px solid #{map-get($colors, "primary")};
 }
 
 @media screen and (min-width: 768px) {
     kemet-tabs.horizontal kemet-tab[selected] {
         border-left: 0;
-        border-bottom: 4px solid map-get($colors, "primary");
+        border-bottom: 4px solid #{map-get($colors, "primary")};
     }
 }
 
@@ -60,7 +61,7 @@ kemet-tabs.vertical [slot="links"] {
     kemet-tabs.vertical [slot="links"] {
         min-width: 148px;
         margin-right: 2rem;
-        border-right: 1px solid map-get($colors, "primary");
+        border-right: 1px solid #{map-get($colors, "primary")};
     }
 }
 
@@ -69,5 +70,5 @@ kemet-tabs.vertical kemet-tab {
 }
 
 kemet-tabs.vertical kemet-tab[selected] {
-    border-right: 4px solid map-get($colors, "primary");
+    border-right: 4px solid #{map-get($colors, "primary")};
 }

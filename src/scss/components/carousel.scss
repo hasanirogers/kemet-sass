@@ -13,7 +13,7 @@ kemet-carousel[pagination="bottom"] {
 kemet-carousel [slot="slides"] {
     height: 100%;
     border-radius: 1rem;
-    border: 1px solid map-get($colors, "primary");
+    border: 1px solid #{map-get($colors, "primary")};
 }
 
 kemet-carousel [slot="pagination"] {

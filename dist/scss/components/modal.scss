@@ -5,6 +5,6 @@ kemet-modal {
 
 kemet-modal .content {
     padding: 1rem;
-    color: map-get($colors, "white-rich");
-    background: map-get($colors, "primary-75");
+    color: #{map-get($colors, "white-rich")};
+    background: #{map-get($colors, "primary-75")};
 }
