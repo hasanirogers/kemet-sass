@@ -1,0 +1,6 @@
+@import "components/config";
+
+kemet-drawer {
+    --kemet-drawer-width: #{$drawer-width};
+    --kemet-drawer-background: #{map-get($colors, "primary")};
+}

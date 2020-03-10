@@ -28,3 +28,5 @@ Updates
 * 1.3.0 Added responsive gutters. Added margin spacer helper classes.
 * 1.3.1 Refactored to use Webpack and Stylelint.
 
+* 1.4.0 Added component styles.
+

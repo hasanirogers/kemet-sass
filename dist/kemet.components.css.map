@@ -1,1 +1,1 @@
-{"version":3,"file":"kemet.components.css","sources":[],"mappings":";","sourceRoot":""}
+{"version":3,"file":"kemet.components.css","sources":["webpack:///./src/scss/components/drawer.scss"],"sourcesContent":["@import \"components/config\";\n\nkemet-drawer {\n    --kemet-drawer-width: #{$drawer-width};\n    --kemet-drawer-background: #{map-get($colors, \"primary\")};\n}\n"],"mappings":"AAEA;;","sourceRoot":""}

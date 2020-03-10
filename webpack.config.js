@@ -19,6 +19,11 @@ const pluginConfigs = {
       from: resolve(`src/scss/library/*.scss`),
       to: join(__dirname, 'dist/scss'),
       flatten: true
+    },
+    {
+      from: resolve(`src/scss/components/*.scss`),
+      to: join(__dirname, 'dist/scss/components'),
+      flatten: true
     }
   ],
 
