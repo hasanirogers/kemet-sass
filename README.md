@@ -32,4 +32,5 @@ Updates
 * 1.4.1 Fixed component styles interpolation issue.
 
 * 1.5.0 Added scroll snap styles.
+* 1.5.1 Fixed missing `/dist` build
 
