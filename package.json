@@ -19,7 +19,7 @@
     "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.2",
-    "sassdoc": "^2.7.1",
+    "sassdoc": "^2.7.3",
     "stylelint": "^13.2.0",
     "stylelint-config-sass-guidelines": "^7.0.0",
     "stylelint-webpack-plugin": "^1.2.3",
